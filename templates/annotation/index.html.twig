@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anotaciones{% endblock %}
+
+{% block body %}
+    <h1>Anotaciones</h1>
+
+    <form method="post">
+        <div>
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div>
+            <label for="content">Contenido:</label>
+            <textarea id="content" name="content" required></textarea>
+        </div>
+        <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Anotaciones guardadas:</h2>
+    <ul>
+        {% for annotation in annotations %}
+            <li>
+                <h3>{{ annotation.getTitle() }}</h3>
+                <p>{{ annotation.getContent() }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
